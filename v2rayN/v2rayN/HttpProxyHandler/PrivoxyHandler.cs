@@ -92,7 +92,7 @@ namespace v2rayN.HttpProxyHandler
                 _runningPort = GetFreePort(localPort);
                 privoxyConfig = privoxyConfig.Replace("__SOCKS_PORT__", localPort.ToString());
                 privoxyConfig = privoxyConfig.Replace("__PRIVOXY_BIND_PORT__", _runningPort.ToString());
-                privoxyConfig = privoxyConfig.Replace("__PRIVOXY_BIND_IP__", "0.0.0.0");
+                privoxyConfig = privoxyConfig.Replace("__PRIVOXY_BIND_IP__", "127.0.0.1");
                 FileManager.ByteArrayToFile(Utils.GetTempPath(_uniqueConfigFile), Encoding.UTF8.GetBytes(privoxyConfig));
 
                 _process = new Process
